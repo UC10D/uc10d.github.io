@@ -96,7 +96,7 @@
             
               <li class="archive-list-container">
                 <a href="javascript:;">Archive</a>
-                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">2</span></li></ul>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">3</span></li></ul>
               </li>
             
           
@@ -160,6 +160,44 @@
           <h1><a href="/archives/2016" class="archive-year">2016</a></h1>
         </div>
         <div class="post-list">
+    
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2016/05/19/Vitamio踩过的坑/" >
+  Vitamio踩过的坑
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2016/05/19/Vitamio踩过的坑/"><span class="article-date">
+  2016-05-19
+</span>
+</a>
+        
+
+        
+
+      </div>
+      <div class="article-entry">
+        
+          <p>最近公司打算做一个视频相关的项目，<br>android方面打算用Vitamio开源框架，支持多种视频格式，踩坑的道路就此开始。<br>（ps：第一次做视频项目，第一次一个人负责一个项目TOT）</p>
+<h2 id="还未开始，先踩坑"><a href="#还未开始，先踩坑" class="headerlink" title="还未开始，先踩坑"></a>还未开始，先踩坑</h2><h3 id="编译版本"><a href="#编译版本" class="headerlink" title="编译版本"></a>编译版本</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ compileSdkVersion 22</span><br><span class="line">$ buildToolsVersion <span class="string">'22.0.1'</span></span><br></pre></td></tr></table></figure>
+<p>刚开始使用的是 23，手贱，用了许多没用过的“新”特性，结果不兼容android 6.0系统。<br>醉了，最后降版本。一些第三方的，在仓库上找了半天，一个个查哪个用了23编译的。。<br>商业开发的，注意，个人实验的忽略。编译版本最好使用22的高版本，比较问题。</p>
+<h2 id="正式入坑"><a href="#正式入坑" class="headerlink" title="正式入坑"></a>正式入坑</h2><h3 id="清单配置"><a href="#清单配置" class="headerlink" title="清单配置"></a>清单配置</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ android:process=<span class="string">":vitamio"</span></span><br></pre></td></tr></table></figure>
+<p>初始化引用，demo 中 activity都会调用 init，初始解码器。开发过程中，用的最多的<br>还是Fragment。使用Vitamiio播放后，即使关闭了。页面跳转的时候，经常会碰到崩溃的问题。<br>忘了哪里找的答案，在清单文件中，有需要的Activty 中添加 android:process=”:vitamio”，<br>问题基本解决。</p>
+<h3 id="to-be-contiue"><a href="#to-be-contiue" class="headerlink" title="to be contiue"></a>to be contiue</h3><h3 id="踩坑交流QQ：124073651"><a href="#踩坑交流QQ：124073651" class="headerlink" title="踩坑交流QQ：124073651"></a>踩坑交流QQ：124073651</h3>
+        
+      </div>
+    </div>
+
+  
+
+  
+  
     
   
 

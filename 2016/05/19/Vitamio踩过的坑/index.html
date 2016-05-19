@@ -8,19 +8,26 @@
 
 <title>
   
-    中二病
+    Vitamio踩过的坑
   
 </title>
 
-<meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="中二病">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="最近公司打算做一个视频相关的项目，android方面打算用Vitamio开源框架，支持多种视频格式，踩坑的道路就此开始。（ps：第一次做视频项目，第一次一个人负责一个项目TOT）
+还未开始，先踩坑编译版本12$ compileSdkVersion 22$ buildToolsVersion &apos;22.0.1&apos;
+刚开始使用的是 23，手贱，用了许多没用过的“新”特性，结果不兼容android 6.0系">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vitamio踩过的坑">
+<meta property="og:url" content="http://yoursite.com/2016/05/19/Vitamio踩过的坑/index.html">
 <meta property="og:site_name" content="中二病">
-<meta property="og:description">
+<meta property="og:description" content="最近公司打算做一个视频相关的项目，android方面打算用Vitamio开源框架，支持多种视频格式，踩坑的道路就此开始。（ps：第一次做视频项目，第一次一个人负责一个项目TOT）
+还未开始，先踩坑编译版本12$ compileSdkVersion 22$ buildToolsVersion &apos;22.0.1&apos;
+刚开始使用的是 23，手贱，用了许多没用过的“新”特性，结果不兼容android 6.0系">
+<meta property="og:updated_time" content="2016-05-19T15:07:52.080Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="中二病">
-<meta name="twitter:description">
+<meta name="twitter:title" content="Vitamio踩过的坑">
+<meta name="twitter:description" content="最近公司打算做一个视频相关的项目，android方面打算用Vitamio开源框架，支持多种视频格式，踩坑的道路就此开始。（ps：第一次做视频项目，第一次一个人负责一个项目TOT）
+还未开始，先踩坑编译版本12$ compileSdkVersion 22$ buildToolsVersion &apos;22.0.1&apos;
+刚开始使用的是 23，手贱，用了许多没用过的“新”特性，结果不兼容android 6.0系">
 
 
   <link rel="alternative" href="/atom.xml" title="中二病" type="application/atom+xml">
@@ -148,127 +155,54 @@
       
         <div style="max-width: 1000px">
       
-          
-
+          <article id="post-Vitamio踩过的坑" class="article article-type-post">
+  
+    <h1 class="article-header">
+      Vitamio踩过的坑
+    </h1>
   
   
-    <div class="post-list">
-  
 
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2016/05/19/Vitamio踩过的坑/" >
-  Vitamio踩过的坑
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2016/05/19/Vitamio踩过的坑/"><span class="article-date">
+  <div class="article-info">
+    <span class="article-date">
   2016-05-19
 </span>
-</a>
-        
 
-        
+    
 
-      </div>
-      <div class="article-entry">
-        
-          <p>最近公司打算做一个视频相关的项目，<br>android方面打算用Vitamio开源框架，支持多种视频格式，踩坑的道路就此开始。<br>（ps：第一次做视频项目，第一次一个人负责一个项目TOT）</p>
+    
+
+  </div>
+  <div class="article-entry">
+    <p>最近公司打算做一个视频相关的项目，<br>android方面打算用Vitamio开源框架，支持多种视频格式，踩坑的道路就此开始。<br>（ps：第一次做视频项目，第一次一个人负责一个项目TOT）</p>
 <h2 id="还未开始，先踩坑"><a href="#还未开始，先踩坑" class="headerlink" title="还未开始，先踩坑"></a>还未开始，先踩坑</h2><h3 id="编译版本"><a href="#编译版本" class="headerlink" title="编译版本"></a>编译版本</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ compileSdkVersion 22</span><br><span class="line">$ buildToolsVersion <span class="string">'22.0.1'</span></span><br></pre></td></tr></table></figure>
 <p>刚开始使用的是 23，手贱，用了许多没用过的“新”特性，结果不兼容android 6.0系统。<br>醉了，最后降版本。一些第三方的，在仓库上找了半天，一个个查哪个用了23编译的。。<br>商业开发的，注意，个人实验的忽略。编译版本最好使用22的高版本，比较问题。</p>
 <h2 id="正式入坑"><a href="#正式入坑" class="headerlink" title="正式入坑"></a>正式入坑</h2><h3 id="清单配置"><a href="#清单配置" class="headerlink" title="清单配置"></a>清单配置</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ android:process=<span class="string">":vitamio"</span></span><br></pre></td></tr></table></figure>
 <p>初始化引用，demo 中 activity都会调用 init，初始解码器。开发过程中，用的最多的<br>还是Fragment。使用Vitamiio播放后，即使关闭了。页面跳转的时候，经常会碰到崩溃的问题。<br>忘了哪里找的答案，在清单文件中，有需要的Activty 中添加 android:process=”:vitamio”，<br>问题基本解决。</p>
 <h3 id="to-be-contiue"><a href="#to-be-contiue" class="headerlink" title="to be contiue"></a>to be contiue</h3><h3 id="踩坑交流QQ：124073651"><a href="#踩坑交流QQ：124073651" class="headerlink" title="踩坑交流QQ：124073651"></a>踩坑交流QQ：124073651</h3>
-        
-      </div>
-    </div>
-
-  
-    </div>
-  
-
-  
-  
-    <div class="post-list">
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2016/05/17/中二病开始写博客/" >
-  中二病开始写博客了。。。
-</a>
-
-      </h3>
+  </div>
+  <footer class="article-footer">
+    
+  <div class="cc">
+    <a href="http://creativecommons.org/licenses/by-sa/4.0/deed.en" target="_blank" title="Attribution-ShareAlike">
+      <img src="/images/cc/cc.png">
       
-
-      <div class="article-info">
-        <a href="/2016/05/17/中二病开始写博客/"><span class="article-date">
-  2016-05-17
-</span>
-</a>
+          <img src="/images/cc/by.png">
         
-
-        
-
-      </div>
-      <div class="article-entry">
-        
-          <p>打算每天写一点</p>
-
-        
-      </div>
-    </div>
-
-  
-    </div>
-  
-
-  
-  
-    <div class="post-list">
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2016/05/17/hello-world/" >
-  Hello World
-</a>
-
-      </h3>
+          <img src="/images/cc/sa.png">
       
+      <span>
+        This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+      </span>
+    </a>
+  </div>
 
-      <div class="article-info">
-        <a href="/2016/05/17/hello-world/"><span class="article-date">
-  2016-05-17
-</span>
-</a>
-        
 
-        
+    
 
-      </div>
-      <div class="article-entry">
-        
-          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+  </footer>
+</article>
 
-        
-      </div>
-    </div>
-
-  
-    </div>
-  
 
 
 
